@@ -1,0 +1,133 @@
+% ----------------------------------------------------------------
+%                Assignment Report Template
+% ----------------------------------------------------------------
+% Author: Zoey W
+% Date: 9/1/2024
+% ----------------------------------------------------------------
+
+\documentclass[12pt]{article}
+
+ % format -----------------------------------------------------------------------
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=25mm,
+ right=25mm,
+ top=10mm,
+ }
+\usepackage{setspace} % make spacing
+\onehalfspacing{}
+
+\usepackage{fontspec}% Set font style
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+\setmonofont{Libertinus Mono}
+% \usepackage{unicode-math} % Only needed if use math support
+% \setmathfont{Libertinus Math} 
+
+\usepackage{titlesec} % Title format
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{1em}{} % Title font size
+%\Huge \huge \LARGE \Large \large \normalsize \small \footnotesize \scriptsize \tiny
+\titlespacing*{\section}
+  {0pt} % Left margin (indentation)
+  {12pt} % Space before the title
+  {12pt} % Space after the title
+  
+\usepackage{lipsum} % just to generate random paragraphs
+
+% figures, tables, math --------------------------------------------------------
+\usepackage[figuresleft]{rotating}  % for figure rotation
+\usepackage{csquotes}  % quotation support
+\usepackage{amssymb}  % math symbols support
+\usepackage{graphicx} % insert image
+\usepackage{subfigure}
+\usepackage[english]{babel} % date format
+\usepackage{enumitem} % make list
+\usepackage{tabularx} %make table
+\usepackage{booktabs}  % for \toprule, \midrule, \bottomrule
+\usepackage{amsmath} % include special math characters
+\usepackage{amssymb}
+
+% Customizing the caption style ------------------------------------------------
+\usepackage{caption}
+\captionsetup{
+    font=small,             % Font size
+    labelfont=bf,           % Bold label (e.g., "Figure 1")
+    labelsep=colon,         % Separator between label and caption text
+    justification=centering % Center the caption text
+}
+
+% color ------------------------------------------------------------------------- 
+\usepackage[svgnames]{xcolor}  % coloring
+
+% reference --------------------------------------------------------------------- 
+\usepackage[
+backend=biber,
+style=ieee, % change it with the corresponding style
+sorting=ynt
+]{biblatex} 
+\addbibresource{ref.bib}
+
+\definecolor{blue_cite}{RGB}{34,111,212} % change the in-text citation color
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=blue_cite
+}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+% Start here
+% --------------------------------------------------------------
+ 
+\title{Assignment Report}
+\author{Zoey W}
+\maketitle
+% Use \date{}\maketitle to make it without date
+
+\section*{Statement}
+\lipsum[1-1]
+\begin{equation} % example equation
+    \mathbb{N}(t)=\sum_{k'}P(k'\mid k)\rho^{I}_{k^{'}}(t).
+\end{equation}
+\lipsum[2-2]
+qwetest\cite{wei2022chain}
+
+\section*{Objectives}
+\lipsum[3-3]
+\begin{itemize} % example list
+    \item qwertyui
+    \item asdfghgh
+\end{itemize}
+
+\section*{Plan}
+\lipsum[4-4]\\ 
+\begin{table}[h] % example table
+    \vspace{2pt} 
+    \centering
+    \begin{tabular}{lcr} 
+        \toprule
+        Column 1 & Column 2 & Column 3 \\
+        \midrule
+        Data 1   & Data 2   & Data 3   \\
+        Data 4   & Data 5   & Data 6   \\
+        \bottomrule
+    \end{tabular} \label{tab1}
+    \caption{This is a sample table caption demonstrating customization.}
+\end{table}
+
+\section*{Related Study}
+\lipsum[5-5]
+\begin{figure}[h] % example figure
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure1.png} \label{fig1}
+    \caption{This is a sample figure caption demonstrating customization.}
+\end{figure}
+
+% -----------References---------------
+\printbibliography
+
+\end{document}
