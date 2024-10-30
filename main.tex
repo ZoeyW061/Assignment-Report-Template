@@ -23,8 +23,8 @@
 \setmainfont{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 \setmonofont{Libertinus Mono}
-% \usepackage{unicode-math} % Only needed if use math support
-% \setmathfont{Libertinus Math} 
+\usepackage{unicode-math}     % Only needed if use math support
+\setmathfont{Libertinus Math} % Only needed if use math support
 
 \usepackage{titlesec} % Title format
 \titleformat{\section}
@@ -50,6 +50,11 @@
 \usepackage{amsmath} % include special math characters
 \usepackage{amssymb}
 
+% Only when using sans-serif fonts in tables
+\usepackage{etoolbox}
+\AtBeginEnvironment{table}{\sffamily} % Set sans font for table environment
+\AtEndEnvironment{table}{\normalfont} % Reset to normal font outside tables
+
 % Customizing the caption style ------------------------------------------------
 \usepackage{caption}
 \captionsetup{
@@ -58,6 +63,8 @@
     labelsep=colon,         % Separator between label and caption text
     justification=centering % Center the caption text
 }
+\captionsetup[table]{font={sf}}    % Use sans-serif for caption
+\captionsetup[figure]{font={sf}}   % Use sans-serif for caption
 
 % color ------------------------------------------------------------------------- 
 \usepackage[svgnames]{xcolor}  % coloring
@@ -106,6 +113,7 @@ qwetest\cite{wei2022chain}
 \section*{Plan}
 \lipsum[4-4]\\ 
 \begin{table}[h] % example table
+    \sffamily  % Only when using sans-serif fonts in tables
     \vspace{2pt} 
     \centering
     \begin{tabular}{lcr} 
